@@ -1,0 +1,17 @@
+p{
+    color:darkblue;
+}
+#id{
+    font-style: italic;
+    font-weight: bold;
+    font-size: large;
+}
+#topright{
+    position:absolute; 
+    top:0%;
+     right:10%;
+}
+.bold{
+    font-size: large;
+    font-style: italic;
+}

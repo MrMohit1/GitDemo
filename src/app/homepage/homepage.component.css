@@ -1,0 +1,88 @@
+.bg{
+    background-color: #64c5ff;
+}
+#footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color:#64c5ff;
+}
+a{
+    text-decoration: none;
+}
+.button{
+    position:absolute; 
+    top:10px;
+    right:10px;
+}
+.new{
+    background-color: #e6ebdf
+    ;
+    text-decoration: double;
+}
+.head {
+    font-size: 41px;
+    color: Red;
+}
+.section {
+    font-size: 25px;
+}
+.cafeimg1 {
+    height: 610px;
+    width: 100%
+}
+.cafeimg2 {
+    height: 610px;
+    width: 29%
+}
+.about {
+    font-size: 36px;
+    color: Red;
+}
+.about1 {
+    font-size: 30px; 
+}
+table {
+    font-size: 20px;
+}
+.Taste {
+    height: 100px;
+    width: 100px;
+}
+div {
+  width: 1200px;
+  padding: 10px;
+  border-style:solid;
+border-width:5px;  
+border-color:transparent;
+  margin: auto;
+}
+a {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+form {
+    background: White;
+    width: 480px;
+      border: 2px solid;
+      padding: 10px;
+}
+#cont {
+    color: white;
+}
+.cont1 {
+    width: 70%;
+    height: 200px;
+}
+.div1 {
+    background-color: #ffc2c2;
+}
+.offer {
+    font-size: 20px;
+    color: white;
+}
+.footer {
+    background-color: #ff596d;
+}

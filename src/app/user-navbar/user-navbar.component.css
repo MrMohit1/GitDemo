@@ -1,0 +1,14 @@
+a{
+    text-decoration: none;
+    color:black;
+}
+button{
+    position:absolute; 
+    top:0%;
+     right:0%;
+}
+#topright{
+    position:absolute; 
+    top:0%;
+     right:10%;
+}

@@ -1,0 +1,12 @@
+a{
+    text-decoration: none;
+}
+button{
+    margin-top: 0%;
+    margin-right: 0%;
+}
+ul{
+    padding:10px;
+    display:inline-block;
+    list-style-type: none;
+}

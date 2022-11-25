@@ -1,0 +1,27 @@
+<div class="container">
+    <div style="text-align:center">
+      <h2>Contact Us</h2>
+      <p>Swing by for a cup of coffee, or leave us a message:</p>
+    </div>
+    <div class="row">
+      <div class="column">
+        <img src="../assets/contact.jpg" style="width:100%">
+      </div>
+      <div class="column">
+        <form action="/action_page.php"  #f="ngForm">
+          <label for="fname"></label><label class="mb-1">
+            <h6 class="mb-0 text-sm">Email Address <span style="color:red">*</span>
+                <span *ngIf = "f.submitted && email.invalid && email.errors.required" style="color:red">&nbsp;&nbsp;Email is required</span>
+                <span *ngIf = "f.submitted && email.invalid && email.errors.email" style="color:red"> Email must be a valid email address</span>
+                </h6></label>
+          <input type="text" id="fname" name="firstname" placeholder="Your Email.." [(ngModel)]="email">
+          <label for="lname">Full Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your Full name.." [(ngModel)]="name">
+        
+          <label for="subject">Subject</label>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px" [(ngModel)]="feed"></textarea>
+          <input (click)="submit()" type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,15 @@
+<div *ngIf = "isAdmin; then AdminTemplate else userTemplate"></div>
+<ng-template #AdminTemplate>
+
+</ng-template>
+
+<ng-template #userTemplate>
+ 
+    <app-user-navbar>
+    </app-user-navbar>
+    
+
+</ng-template>
+
+<router-outlet>
+</router-outlet>

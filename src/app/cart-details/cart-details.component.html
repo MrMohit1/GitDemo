@@ -1,0 +1,102 @@
+<p class="text-info">
+    Thanks for shopping at the Our Store.<br />
+    This is your shopping cart. Here you can edit the items, 
+    go back to the store, clear the cart, or check out.
+</p>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span8">
+      <!-- items -->
+            <table class="table table-bordered">
+      <tr class="well">
+          <td></td>
+        <td><b>Item</b></td>
+        <td class="tdCenter"><b>Quantity</b></td>
+        <td class="tdRight"><b>Price</b></td>
+        <td></td>
+      </tr>
+
+      <tr [hidden]="cartItem.length > 0" >
+      <td class="tdCenter" colspan="4">
+      Your cart is empty.
+      </td>
+      </tr>
+
+      <tr *ngFor = "let item of cartItem">
+          <td><img src = "../assets/{{item.imgPath}}" id = "product_img"></td>
+        <td>{{item.name}}</td>
+                            <td class="tdCenter">
+                      <div class="input-append">
+                        <!-- use type=tel instead of  to prevent spinners -->
+                        <input
+                            class="span3 text-center" type="tel" 
+                            [(ngModel)]="item.quantity" 
+                            (change)="saveItems()" />
+                        <button 
+                            class="btn btn-success" type="button" 
+                            [disabled]="item.quantity >= 1000"
+                            (click)="addToCart(item)">+</button>
+                        <button 
+                            class="btn btn-inverse" type="button" 
+                            [disabled]="item.quantity <= 1"
+                            (click)="deleteFromCart(item)">-</button>
+                      </div>
+                    </td>
+
+                    <td class="tdRight">{{item.Price * item.quantity}}</td>
+                    <td class="tdCenter" title="remove from cart">
+                        <a (click)="removeItem(item)" >
+                            <i class="fa fa-window-close"></i>
+                        </a>
+                    </td>
+      </tr>
+                      
+                <tr class="well">
+                    <td><b>Total</b></td>                    
+                    <td class="tdCenter"><b>{{totalItems}}</b></td>
+                    <td></td>
+                    <td class="tdRight"><b>{{cartItemTotalPrice}}</b></td>
+                    <td></td>
+                </tr>
+            </table>
+
+
+    </div>
+
+           <div class="span4">
+            <p class="text-info">
+                <button 
+                    class="btn btn-block" 
+                    (click)="backToStore()" routerLink = '/products'>
+                    <i class="fa fa-caret-square-o-left"></i> back to store
+                </button>
+                <button 
+                    class="btn btn-block btn-danger" 
+                    (click)="clearItems()" 
+                    [disabled]="totalItems < 1" (click) = "clearCart()">
+                    <i class="icon-trash icon-white"></i> clear cart
+                </button>
+            </p>
+
+            <br />
+
+            <p class="text-info">
+                <button
+                    class="btn btn-block btn-primary"                    
+                    (click)="checkout()"
+                    [disabled]="totalItems < 1">
+                    <i class="icon-ok icon-white"></i> check out 
+                </button>                
+            </p>
+                <!-- Stripe needs a form to post to -->
+                <form class="form-stripe"></form>
+
+            <br /><br />
+
+            
+        </div>
+
+  </div>
+
+</div>

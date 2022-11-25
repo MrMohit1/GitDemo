@@ -1,0 +1,54 @@
+ <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Add <b>Prducts</b></h2></div>
+                    <div class="col-sm-4">
+                        <button type="button" class="btn btn-info add-new" (click) = "createNew()"><i class="fa fa-plus"></i> Add New</button>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>About</th>
+                        <th>Price</th>
+                        <th>Name</th>
+                        <th>Image</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let product of product">
+                        <td *ngIf = "!product.isEditable">{{product.Quantity}}</td>
+                         <td *ngIf = "product.isEditable"><input type="number" *ngIf = "product.isEditable" class="form-control" 
+                         [(ngModel)] ="product.Quantity" value="product.Quantity"></td>
+                         <td *ngIf = "!product.isEditable">{{product.about}}</td>
+                         <td *ngIf = "product.isEditable"><input type="string" *ngIf = "product.isEditable" class="form-control" 
+                         [(ngModel)] ="product.about" value="product.about"></td>
+                        <td>{{product.Price}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.imgPath}}</td>
+                        <td>
+							<a *ngIf = "product.isEditable" class="add" (click) = "update(product)" title="Save" ngbTooltip = "Save"><i class="material-icons">&#xe161;</i></a>
+                            <a *ngIf = "!product.isEditable"class="edit" (click) = "setEditState(product,true)" title="Edit" ngbTooltip = "Edit"><i class="material-icons">&#xE254;</i></a>
+                            <a *ngIf = "product.isEditable" class="cancel" (click) = "setEditState(product,false)" title="Cancel" ngbTooltip = "Cancel"><i class="material-icons">&#xe5c9;</i></a>
+                            <a *ngIf = "!product.isEditable" class="delete" (click)="delete(product)" title="Delete" ngbTooltip = "Delete"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                    <tr *ngIf="isAddedNew">  
+                        <td><input type="number" class="form-control" [(ngModel)] ="products.Quantity"></td>
+                        <td><input type="text" class="form-control" [(ngModel)] ="products.about"></td>
+                        <td><input type="number" class="form-control" [(ngModel)] ="products.Price"></td>
+                        <td><input type="text" class="form-control" [(ngModel)] ="products.name"></td>
+                        <td><input type="text" class="form-control" [(ngModel)]="products.imgPath"></td>
+                        <td>
+                            <a class="add" (click) = "create()" title="Add" ngbTooltip = "Add"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                            <a class="cancel" (click) = "setAddedState()" title="cancel"ngbTooltip = "Cancel"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </td>
+                    
+                    </tr>                 
+                </tbody>
+            </table>
+        </div>
+    </div>   
